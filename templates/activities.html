@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="activities-container">
+        {% for activity in activities %}
+            <div class="activity-card">
+                {% if activity.image %}
+                    <div class="image-container">
+                        <img src="{{activity.image.url}}" alt="{{activity.title}}">
+                    </div>
+                {% endif %}
+                <h3>{{activity.title}}</h3>   
+                <p>{{activity.description}}</p>
+                <p class="date"><strong>Date:</strong> {{activity.date}}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

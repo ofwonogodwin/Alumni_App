@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Our Registered Members</h1>
+    <!-- <ul class="list-group"> -->
+        <div class="members-container">
+            {% for member in members %}
+            <!-- <li class="list-group-item"> -->
+                <!-- <a href="{% url 'members:profile' member.id %}" class="member-name">{{ member.username }}</a> -->
+            <!-- </li> -->
+            <div class="member">
+                {% if member.profile.profile_picture %}
+                    <img src="{{ member.profile.profile_picture.url }}" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'" class="img-fluid" style="max-width: 200px;">
+                {% endif %}
+                <h3><a href="{% url 'members:profile' member.id %}" class="member-name">{{ member.username }}</a></h3>
+
+            </div>
+
+        {% empty %}
+            <li class="list-group-item">No members yet.</li>
+        {% endfor %}
+        </div>
+        
+    <!-- </ul> -->
+    {% comment %} <a href="{% url 'members:profile_edit' %}" class="btn btn-primary mt-3">Edit My Profile</a> {% endcomment %}
+{% endblock %}

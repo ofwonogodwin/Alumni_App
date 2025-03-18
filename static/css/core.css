@@ -1,0 +1,131 @@
+ /* General Reset */
+ body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa; /* Soft blue-gray background */
+    color: #333;
+}
+
+/* Main Container */
+.home-container {
+    max-width: 500px; 
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Two-Column Layout */
+.main-content {
+    display: flex;
+    flex-wrap: wrap; /* Stack on small screens */
+    gap: 40px; 
+    margin-bottom: 40px; /* Space before buttons */
+}
+
+/* Left Column (Logo and Heading) */
+.hero-section {
+    flex: 1 1 300px; /* Minimum width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section h1 {
+    font-size: 2.5em;
+    color: #2c3e50; 
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.hero-section .logo {
+    max-width: 120px;
+    height: auto;
+    transition: transform 0.3s ease; 
+}
+
+.hero-section .logo:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Right Column (Vision and Mission) */
+.vision-mission {
+    flex: 2 1 500px; /* Wider for content */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between vision and mission */
+}
+
+.content-block {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-block:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.content-block h3 {
+    font-size: 1.6em;
+    color: #2980b9; 
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.content-block p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* Buttons Section */
+.auth-buttons {
+    text-align: center; 
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #3498db; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 10px; /* Space between buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9; /* Darker blue */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+.btn:active {
+    transform: translateY(0); /* Reset on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* Stack columns */
+        gap: 20px;
+    }
+    .hero-section, .vision-mission {
+        flex: 1 1 100%;    /* Full width on small screens */
+    }
+}

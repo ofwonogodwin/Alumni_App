@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> Hello {{ user.username}} watch out our news!</h1>
+    <div class="news-container">
+        {% for post in news %}
+            <div class="news-post">
+                <h3>{{ post.Title }}</h3>
+                <!--{% if post.image %}
+                    <img src="{{ post.image.url }}" alt="news image" style="max-width: 50%; height: auto; display: block; margin-left: auto; margin-right: auto;"
+                {% endif %}-->
+                <p>{{ post.content }}</p>
+            </div>
+        {% empty %}
+            <div class="no-news">
+                <p>No news yet.</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

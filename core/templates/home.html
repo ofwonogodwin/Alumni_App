@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alumni Connect</title>
+        <link rel="stylesheet" href="{% static 'css/core.css' %}">
+    </head>
+<body>
+    <div class="home-container">
+        <div class="main-content">
+            <!-- Left Column: Logo and Heading -->
+            <section class="hero-section">
+                <h1>Alumni Connect</h1>
+                <img src="{% static 'images/logo.png' %}" alt="Alumni Connect Logo" class="logo">
+            </section>
+
+            <!-- Right Column: Vision and Mission -->
+            <section class="vision-mission">
+                <div class="content-block">
+                    <h3>Our Vision</h3>
+                    <p>To foster lifelong connections among alumni, support professional and personal growth, and contribute to the development of our alma mater and community through networking, mentorship, and shared experiences.</p>
+                </div>
+                <div class="content-block">
+                    <h3>Our Mission</h3>
+                    <p>To build a vibrant alumni community that enhances opportunities for collaboration, knowledge sharing, and social impact while preserving the legacy and values of our institution.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Buttons Below -->
+        <div class="auth-buttons">
+            <a href="{% url 'auth_app:login' %}" class="btn">Login</a>
+            <a href="{% url 'auth_app:register' %}" class="btn">Register</a>
+        </div>
+    </div>
+</body>
+</html>

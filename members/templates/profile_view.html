@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ user.username }}'s Profile</h1>
+    {% if profile.profile_picture %}
+        <img src="{{ profile.profile_picture.url }}" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'" class="img-fluid" style="max-width: 200px;">
+    {% endif %}
+    <p><strong>Full Name:</strong> {{ profile.full_name|default:"No name provided." }}</p>
+
+    <p><strong>Bio:</strong> {{ profile.bio|default:"No bio provided." }}</p>
+    <p><strong>Graduation Year:</strong> {{ profile.graduation_year|default:"Not specified" }}</p>
+    <p><strong>Current Employer:</strong> {{ profile.current_employer|default:"Not specified" }}</p>
+    {% if user == request.user %}
+        <!-- <a href="{% url 'members:profile_edit' %}" class="btn btn-primary">Edit Profile</a> -->
+    {% endif %}
+    <a href="{% url 'members:member_list' %}" class="btn btn-secondary">Back</a>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% for activity in activities %}
+        <div class="activity-card">
+            {% if activity.image %}
+                <img src ="{{activity.image.url}}" alt="{{activity.title}}">
+            {% endif %}
+             <h3>{{activity.title}}</h3>   
+             <p>{{activity.description}}</p>
+             <p><strong>Date:</strong>{{activity.date}}</p>
+        </div>
+    {% endfor %}
+        
+    
+</body>
+</html>                 

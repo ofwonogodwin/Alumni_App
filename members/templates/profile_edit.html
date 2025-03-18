@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- <h1>Edit {{user.username}}'s profile</h1> -->
+    <h1>Edit profile</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="full_name" class="form-label">Full Name</label>
+            <textarea class="form-control" id="full_name" name="full_name" rows="3">{{ profile.full_name }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="bio" class="form-label">Bio</label>
+            <textarea class="form-control" id="bio" name="bio" rows="3">{{ profile.bio }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="employer" class="form-label">Current Employer</label>
+            <textarea class="form-control" id="employer" name="current_employer" rows="2">{{ profile.current_employer }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="graduation_year" class="form-label">Graduation Year</label>
+            <input type="number" class="form-control" id="graduation_year" name="graduation_year" value="{{ profile.graduation_year|default:'' }}">
+        </div>
+        <div class="mb-3">
+            <label for="profile_picture" class="form-label">Profile Picture</label>
+            <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+            {% if profile.profile_picture %}
+                <!-- <img src="{{ profile.profile_picture.url }}" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'" class="img1-fluid" style="max-width: 100px;"> -->
+            {% endif %}
+        </div>
+        <button type="submit" class="save-btn">Save Changes</button>
+        <a href="{% url 'members:profile' user.id %}" class="cancel-btn">Cancel</a>
+    </form>
+     <!-- <a href="{% url 'auth_app:logout' %}">Logout </a> -->
+
+{% endblock %}

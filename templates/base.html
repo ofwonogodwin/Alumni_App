@@ -1,0 +1,39 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlumniConnect</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <nav>
+        <div class="container">
+            <div class="nav-brand">
+                <img src="{% static 'images/logo.png' %}" alt="Alumni Connect" class="logo">
+                <span>Alumni Connect</span>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'members:member_list' %}">Members</a>
+                <a href="{% url 'news:news_list' %}">News</a>
+                <a href="{% url 'activities:activities' %}">Activities</a>
+                <a href="{% url 'auth_app:logout' %}">Logout </a>
+                <a href="{% url 'members:profile_edit' %}">
+                    <img src="{{ user.profile.profile_picture.url }}" class="profile-pic" alt="profile" onerror="this.onerror=null;src='/static/images/Avatar.jpg'">
+                </a>
+                <!-- <a href="{% url 'auth_app:logout' %}">Logout </a> -->
+            </div>
+        </div>
+    </nav>
+    {% endif %}
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+<!-- <footer>all rights reserved @alumin connect</footer> -->
+
+</html>
