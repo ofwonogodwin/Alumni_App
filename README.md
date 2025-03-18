@@ -13,7 +13,7 @@ This is a simple Django web app for **Alumni** of a certain institution to conne
 
 ## Setup
 
-git clone git@github.com:AinamaniDM/ALUMNI_APPLICATION.git <br> 
+git clone this repo Link<br> 
 cd alumni-app  <br>
 python -m venv myenv <br>
 && source mvenv/bin/activate  <br>
