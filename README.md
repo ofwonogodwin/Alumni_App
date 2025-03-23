@@ -26,4 +26,5 @@ Access the app at http://127.0.0.1:8000/.<br>
 ## Contributing
 
 Fork, improve and submit a PR!<br>
+## thanks
 
